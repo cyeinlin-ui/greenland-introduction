@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>格陵兰 | Greenland</title>
+<style>
+
+#welcome {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to bottom, #a3d5ff, #007f99);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 9999;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+#welcome h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+#welcome p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+#welcome button {
+  padding: 12px 24px;
+  background: white;
+  color: #007f99;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+#welcome button:hover {
+  background: #e6f4f8;
+  transform: scale(1.05);
+}
+#welcome.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<style>
+body {
+      font-family: 'Segoe UI', 'Noto Sans SC', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #eef6f9;
+      color: #2b2b2b;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(to right, #5dbcd2, #007f99);
+      color: white;
+      padding: 50px 20px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+
+.content-img {
+  display: block;
+  margin: 20px auto;
+  max-width: 500px;
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+    .tab {
+      display: flex;
+      justify-content: center;
+      background-color: #dbeef4;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tab button {
+      background-color: inherit;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 12px 20px;
+      margin: 4px;
+      font-size: 1rem;
+      transition: 0.3s;
+      border-radius: 6px;
+      color: #007f99;
+      font-weight: bold;
+    }
+
+    .tab button:hover {
+      background-color: #c1e7f0;
+    }
+
+    .tab button.active {
+      background-color: #007f99;
+      color: white;
+    }
+
+    .tabcontent {
+      display: none;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeEffect 0.5s;
+    }
+
+    @keyframes fadeEffect {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .tabcontent img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      display: block;
+      margin: 20px auto 0;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .tabcontent h2 {
+      color: #007f99;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .tabcontent p {
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: #007f99;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #006680;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #007f99;
+      text-align: center;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+    }
+</style>
+</head>
+<body>
+
+
+<div id="welcome">
+  <h1>Welcome to Greenland</h1>
+  <p>欢迎来到格陵兰</p>
+  <p>The land of ice, nature, and Arctic wonders<br>冰雪、大自然与北极奇观之地</p>
+  <button id="enterBtn">进入 / Explore</button>
+</div>
+
+<body>
+  <header>
+    <h1>格陵兰 | Greenland</h1>
+    <p>冰雪、大自然与北极奇观之地 | Land of Ice, Nature, and Arctic Wonders</p>
+  </header>
+
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'geography')" id="defaultOpen">地理 | Geography</button>
+    <button class="tablinks" onclick="openTab(event, 'culture')">文化 | Culture</button>
+    <button class="tablinks" onclick="openTab(event, 'history')">历史 | History</button>
+    <button class="tablinks" onclick="openTab(event, 'attractions')">景点 | Attractions</button>
+    <button class="tablinks" onclick="openTab(event, 'cuisine')">美食 | Cuisine</button>
+  </div>
+
+  <div id="geography" class="tabcontent">
+    <h2>地理 | Geography</h2>
+    <p>格陵兰是世界上最大的岛屿，位于北极圈内，地处北美洲与欧洲之间，横跨大西洋和北冰洋之间的交界。大约80%的陆地被厚厚的冰盖所覆盖，厚度在内陆超过3公里。</p>
+  <p>Greenland is the world’s largest island, located within the Arctic Circle between North America and Europe, bridging the Atlantic and Arctic Oceans. About 80% of its landmass is covered by an enormous ice sheet, which can reach over 3 kilometers in thickness.</p>
+
+  <p>岛屿东部和西部有一些不被冰雪覆盖的狭长沿海地区，这些地区分布着定居点和城市。格陵兰的首都努克（Nuuk）就位于西海岸，是岛上最大的城市。</p>
+  <p>Narrow coastal areas in the east and west are ice-free and host most settlements and cities. The capital city, Nuuk, is located on the west coast and is the largest urban area on the island.</p>
+
+  <p>格陵兰地貌以冰川、峡湾、高山和苔原为主，地势多变而独特。由于气候变化，近年来冰盖融化速度加快，成为全球关注的焦点。</p>
+  <p>Greenland’s landscape is shaped by glaciers, fjords, mountains, and tundra. The terrain is varied and dramatic. Due to climate change, the ice sheet has been melting at an accelerating rate, making Greenland a critical point of interest in global environmental studies.</p>
+
+  <p>岛上动物种类有限，但拥有如北极熊、海豹、鲸鱼、驯鹿等典型的极地生物。鸟类和海洋生物也非常丰富。</p>
+  <p>Wildlife is limited but includes iconic Arctic animals such as polar bears, seals, whales, and reindeer. Birdlife and marine species are also abundant along the coast.</p>
+    <img src="greenland satellite.jpg" class="content-img">
+  </div>
+
+  <div id="culture" class="tabcontent">
+    <h2>文化 | Culture</h2>
+    <p>格陵兰的文化融合了因纽特人（Inuit）的传统和丹麦的影响，是一种深深扎根于自然、家庭和社区的文化。尽管现代生活逐渐普及，但格陵兰人仍保留许多传统习俗。</p>
+  <p>Greenlandic culture is a unique blend of Inuit traditions and Danish influence, deeply rooted in nature, family, and community. While modern life is becoming more widespread, many traditional customs remain preserved.</p>
+
+  <h3>因纽特传统 | Inuit Traditions</h3>
+  <p>因纽特人自古以来依靠狩猎、捕鱼和采集维持生活。他们擅长制作皮衣、狗拉雪橇、雪屋等，这些传统在今天依然重要。</p>
+  <p>The Inuit have long relied on hunting, fishing, and gathering to survive. Skills such as making fur clothing, dog sledding, and building igloos remain valued today.</p>
+
+  <h3>讲故事与神话 | Storytelling and Mythology</h3>
+  <p>口述传统是文化传承的核心，格陵兰人通过讲故事传递历史、道德与神话。北极狐、巨人和海灵是常见的神秘角色。</p>
+  <p>Oral traditions are central to cultural preservation. Greenlanders pass down history, values, and myths through storytelling, with figures like Arctic foxes, giants, and sea spirits often featured.</p>
+
+  <h3>艺术与手工艺 | Arts and Handicrafts</h3>
+  <p>格陵兰的艺术以雕刻、面具、皮革制品和骨制品为主，反映对自然与动物的敬畏。现代艺术家也正将传统与现代风格融合。</p>
+  <p>Greenlandic art includes carvings, masks, leatherwork, and bone crafts, reflecting respect for nature and animals. Modern artists blend tradition with contemporary styles.</p>
+
+  <h3>节庆与服饰 | Festivals and Clothing</h3>
+  <p>传统节庆如国家日（6月21日）以音乐、舞蹈与穿上传统民族服装来庆祝。彩色珠饰、皮革与毛皮服装在特殊场合中非常重要。</p>
+  <p>Festivals like National Day (June 21) are celebrated with music, dance, and traditional attire. Colorful beadwork, leather, and fur garments hold cultural importance.</p>
+    <img src="inuit culture.jpg" class="content-img">
+  </div>
+
+  <div id="history" class="tabcontent">
+    <h2>历史 | History</h2>
+     <p>格陵兰的历史是一部关于迁徙、维京定居与丹麦殖民的演变故事。最早的居民是几千年前从北美迁徙而来的因纽特人群体。10世纪，挪威维京人来到格陵兰建立了北欧殖民地，这些定居点最终消失。18世纪开始丹麦的殖民统治，直到1979年格陵兰获得了自治权，但至今仍隶属于丹麦王国。</p>
+  <p>Greenland's history is a tale of successive migrations, Norse settlements, and Danish colonization. First inhabited thousands of years ago by various Inuit groups, Greenland was later colonized by Vikings in the 10th century, who established Norse settlements that eventually disappeared. Danish colonization began in the 18th century, and while Greenland gained home rule in 1979, it remains part of the Kingdom of Denmark.</p>
+
+  <h3>早期居民 | Early Inhabitants</h3>
+  <p>格陵兰的最早人类活动可追溯至公元前2500年，多个因纽特文化如Independence I、Saqqaq和Dorset人从北美迁入。公元9世纪左右，Thule文化出现，他们是现代格陵兰因纽特人的祖先。</p>
+  <p>Greenland's history stretches back thousands of years, with evidence of human settlement from around 2500 BCE. Various Inuit cultures, including the Independence I, Saqqaq, and Dorset cultures, migrated from North America. The Thule culture, which arrived around the 9th century AD, is the ancestor of Greenland's current Inuit population.</p>
+
+  <h3>维京殖民 | Viking Colonization</h3>
+  <p>公元10世纪，挪威维京人红发埃里克（Erik the Red）在此建立了北欧定居点，并以“Greenland（绿色之地）”吸引移民。13世纪达到人口高峰约3500人，但由于小冰期、资源短缺与孤立等原因，15世纪这些定居点消失。</p>
+  <p>In the 10th century, Erik the Red, a Norwegian Viking, established a Norse settlement on the island, naming it "Greenland" to attract more settlers. Norse settlers, including those from Iceland, established farms and churches, with populations peaking around 3,500 in the 13th century. However, these settlements eventually declined and disappeared in the 15th century, possibly due to factors like climate change (the Little Ice Age), dwindling resources, and isolation.</p>
+
+  <h3>丹麦殖民 | Danish Colonization</h3>
+  <p>格陵兰在14世纪并入丹麦统治的挪威王国。18世纪，丹麦牧师汉斯·埃格德（Hans Egede）率团重返格陵兰，并于1721年正式将其变为丹麦殖民地，直到1953年。</p>
+  <p>Greenland came under Danish rule in the 14th century when the Kingdom of Norway came under the Danish crown. In the 18th century, a joint Danish-Norwegian missionary expedition led by Hans Egede re-established contact with Greenland, and Denmark asserted its sovereignty. Greenland officially became a Danish colony in 1721, remaining so until 1953.</p>
+
+  <h3>自治与自我管理 | Home Rule and Self-Rule</h3>
+  <p>1979年，格陵兰获得丹麦王国内的“自治地位”，2009年进一步实行“自我管理”，掌控内部事务，但国防与外交仍由丹麦负责。</p>
+  <p>In 1979, Greenland gained home rule, granting it significant autonomy within the Kingdom of Denmark. In 2009, self-rule was expanded, giving Greenlanders greater control over their affairs, though defense and foreign policy remain under Danish jurisdiction.</p>
+    <img src="history.jpg" class="content-img">
+  </div>
+
+  <div id="attractions" class="tabcontent">
+    <h2>景点 | Attractions</h2>
+      <p>格陵兰是一片原始纯净的北极土地，拥有令人惊叹的自然景观和文化体验。无论是追逐北极光、探索冰峡湾、体验狗拉雪橇，还是沉浸于彩色房屋环绕的努克小镇，这里都是探险与自然爱好者的天堂。</p>
+  <p>Greenland is a pristine Arctic land with breathtaking natural wonders and cultural experiences. Whether you're chasing the Northern Lights, exploring ice fjords, riding dog sleds, or visiting the colorful town of Nuuk, it's a paradise for adventurers and nature lovers.</p>
+
+  <h3>伊卢利萨特冰峡湾 | Ilulissat Icefjord</h3>
+  <p>联合国教科文组织世界遗产，峡湾中漂浮着巨大的冰山，是观察冰川活动的最佳地点。</p>
+  <p>A UNESCO World Heritage Site, the Ilulissat Icefjord is filled with colossal icebergs and offers an incredible view of glacial activity.</p>
+
+  <h3>北极光 | Northern Lights</h3>
+  <p>每年秋冬时分，格陵兰的夜空会被绿色、紫色和粉红色的极光照亮，令人叹为观止。</p>
+  <p>In fall and winter, Greenland’s skies light up with stunning green, purple, and pink auroras—one of the best places on Earth to witness this natural phenomenon.</p>
+
+  <h3>狗拉雪橇 | Dog Sledding</h3>
+  <p>传统的交通方式之一，现在成为游客喜爱的极地体验，可穿越雪原与冰原。</p>
+  <p>Once a traditional mode of transport, dog sledding is now a favorite Arctic adventure that lets visitors traverse snowy landscapes.</p>
+
+  <h3>努克市 | Nuuk City</h3>
+  <p>格陵兰首都，融合传统因纽特文化与现代生活，拥有博物馆、艺术中心与五彩缤纷的房屋。</p>
+  <p>Nuuk, Greenland’s capital, blends Inuit traditions with modern living. It offers museums, art centers, and iconic colorful buildings.</p>
+
+  <h3>峡湾巡航 | Fjord Cruises</h3>
+  <p>乘船游览峡湾，可近距离观看冰山、海豹，甚至鲸鱼，是最震撼的方式之一。</p>
+  <p>Fjord cruises offer breathtaking views of icebergs, seals, and even whales—one of the best ways to experience Greenland’s rugged beauty.</p>
+    <img src="greenland aurora.jpg" class="content-img">
+  </div>
+
+  <div id="cuisine" class="tabcontent">
+    <h2>美食 | Cuisine</h2>
+     <p>格陵兰的饮食深受北极自然环境影响，主要依赖打猎和捕鱼获取食物。传统菜肴通常以海豹、鲸鱼、驯鹿等肉类以及各种鱼类和海鲜为主。此外，乌鸦莓和蓝莓等野生浆果也常出现在饮食中，为餐点增添自然风味。</p>
+  <p>Greenlandic cuisine is heavily influenced by its Arctic environment, relying on hunting and fishing for sustenance. Traditional dishes often feature meat from seals, whales, and reindeer, as well as various fish and seafood. Berries, especially crowberries and blueberries, are also common additions to the diet.</p>
+
+  <p><strong>海豹 Seal：</strong> 海豹是格陵兰人饮食的重要组成部分，常用于“肉汤”（Suaasat）这道国汤中。这是一种由海豹肉、马铃薯、洋葱、米饭与调味料熬制而成的浓汤，也常以风干、熏制或海水煮的方式食用。<br>
+  <em>Seal is a staple, used in dishes like the national soup, Suaasat — a thick broth made from seal meat, potatoes, onions, rice, and seasonings. It is also dried or boiled, sometimes in seawater for added flavor.</em></p>
+
+  <p><strong>鲸鱼 Whale：</strong> 鲸鱼肉被视为珍馐，一些冒险者还会尝试“马塔克”（mattak）——鲸鱼的生皮与鲸脂。<br>
+  <em>Whale meat is considered a delicacy. Some adventurous eaters try mattak, the raw skin and blubber of whales.</em></p>
+
+  <p><strong>驯鹿与麝牛 Reindeer & Muskox：</strong> 这些野生动物提供优质蛋白，尤其是驯鹿肉在当地颇受欢迎。<br>
+  <em>These wild animals provide quality meat, with reindeer being especially popular in Greenland.</em></p>
+
+  <p><strong>鱼类与海鲜 Fish & Seafood：</strong> 由于格陵兰的沿海地理优势，北极红点鲑、三文鱼、比目鱼、虾和螃蟹等是餐桌上的常见食材。<br>
+  <em>Owing to Greenland’s coastal location, Arctic char, salmon, halibut, shrimp, and crab are commonly featured.</em></p>
+
+  <p><strong>浆果 Berries：</strong> 乌鸦莓和蓝莓常被用于甜点、饮料或搭配主食，增添风味与营养。<br>
+  <em>Crowberries and blueberries are popular in desserts, drinks, or served alongside meals.</em></p>
+
+  <p><strong>传统与现代 | Traditional & Modern Influences：</strong><br>
+  在格陵兰，风干、腌制和烟熏是保存鱼肉的常见方式，尤其是在寒冷气候中。传统饮食不仅满足营养需求，也承载着文化意义，尤其在长者心中价值非凡。近年来，一些餐厅也开始尝试将本地食材与现代料理融合，打造独特的美食体验。<br>
+  <em>Drying, salting, and smoking are traditional ways to preserve meat and fish in the cold climate. These foods carry cultural value, especially among elders. Recently, chefs have blended local ingredients with modern cooking to create unique culinary experiences.</em></p>
+
+  <p><strong>食物安全 | Food Security：</strong><br>
+  在偏远地区，许多社区仍依赖本地资源获取食物。政府正在致力于提高蔬果供应与整体食物安全，尤其是在交通不便的定居点中。<br>
+  <em>In remote areas, communities rely on local sources for food. The government is working to improve produce availability and food security, especially in isolated settlements.</em></p>
+    <img src="food.jpg" class="content-img">
+  </div>
+
+  <div class="section" style="text-align:center">
+    <button class="btn" onclick="showMessage()">为什么要去格陵兰？ | Why visit Greenland?</button>
+    <p id="message"></p>
+  </div>
+
+  <footer>
+    &copy; 2025 探索格陵兰 | Discover Greenland. All rights reserved.
+  </footer>
+
+<script>
+// 欢迎画面控制
+document.getElementById('enterBtn').addEventListener('click', function() {
+  document.getElementById('welcome').classList.add('hide');
+});
+
+// 滚动淡入动画
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.2 };
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+
+faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+
+<script>
+    function openTab(evt, tabName) {
+      let i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.classList.add("active");
+    }
+
+    function showMessage() {
+      document.getElementById("message").textContent =
+        "格陵兰拥有原始自然风光、独特的北极体验与丰富的文化历史，是冒险者的理想之地！ Greenland offers pristine landscapes, unique Arctic experiences, and rich culture – perfect for explorers!";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("defaultOpen").click();
+    });
+</script>
+</body>
+</html>
